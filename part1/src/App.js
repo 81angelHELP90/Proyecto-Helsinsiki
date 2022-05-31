@@ -9,6 +9,8 @@ const App = () => {
   const exercises3 = 14
   */
 
+  let parts
+
   const course = {
     name: 'Half Stack application development',
     parts: [
@@ -27,11 +29,33 @@ const App = () => {
     ]
   }
 
+  const Header = (props) => {
+    return (
+      <div>
+        <p>{props.name}</p>
+      </div>
+    )
+  }
+
+  const Content = (props) => {
+    return (
+      <div>
+        <p>{props.parts.name}</p>
+      </div>
+    )
+  }
+
+  const Total = (props) => {
+    <div>
+      <p>{props.parts.excercises}</p>
+    </div>
+  }
+
   return (
     <div>
-      <Header course={name} />
-      <Content parts={parts} />
-      <Total parts={parts} />
+      <Header course={course.name} />
+      <Content parts = {parts} />
+      <Total parts = {parts} />
     </div>
   )
 }

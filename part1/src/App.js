@@ -1,15 +1,4 @@
 const App = () => {
-  /*
-  const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
-  */
-
-  let parts
 
   const course = {
     name: 'Half Stack application development',
@@ -32,32 +21,67 @@ const App = () => {
   const Header = (props) => {
     return (
       <div>
-        <p>{props.name}</p>
+        <p>{props.course}</p>
       </div>
     )
   }
 
   const Content = (props) => {
-    return (
-      <div>
-        <p>{props.parts.name}</p>
-      </div>
-    )
+    props.parts.forEach(element => {
+      console.log("element: ", element.name)
+      return (
+        <div>
+          <p>{element.name}</p>
+        </div>
+      )
+    });
   }
 
   const Total = (props) => {
-    <div>
-      <p>{props.parts.excercises}</p>
-    </div>
+    return(
+      <div>
+        <p>{props.parts}</p>
+      </div>
+    )
   }
 
   return (
     <div>
       <Header course={course.name} />
-      <Content parts = {parts} />
-      <Total parts = {parts} />
+      <Content parts = {course.parts} />
+      <Total parts = {course.parts[0].excercises} />
     </div>
   )
 }
 
 export default App
+
+/*
+const Hello = (props) => {
+  return (
+    <div>
+      <p>Hola desde el componente llamado: {props.name} | {props.edad}</p>
+    </div>
+  )
+}
+
+const App = () => {
+  console.log('Hola desde el componente')
+  const date =  1202 //new Date() 
+  const b = 20 
+  const c = 34
+  const accesorio = {a: 'otro 2', b: 234}
+
+  return (
+    <div>
+      <h1>Greetings</h1>
+      <p>Hola mundo desde un componente Reac. Hoy {date}</p>
+      <p>La suma de b + c da: {b + c}</p>
+      <Hello name='Angelito'/>
+      <Hello name='Noelita'/>
+      <Hello name='Amita'/>
+      <Hello name='Latarito'/>
+      <Hello name={accesorio.a} edad={accesorio.b}/>
+    </div>
+  )
+*/
